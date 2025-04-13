@@ -86,9 +86,9 @@ var init = () => {
 
     /////////////////////
     // Permanent Upgrades
-    theory.createPublicationUpgrade(0, currency, 1e6);
-    theory.createBuyAllUpgrade(1, currency, 1e10);
-    theory.createAutoBuyerUpgrade(2, currency, 1e20);
+    theory.createPublicationUpgrade(0, currency, 1e2);
+    theory.createBuyAllUpgrade(1, currency, 1e4);
+    theory.createAutoBuyerUpgrade(2, currency, 1e6);
 
     ///////////////////////
     //// Milestone Upgrades
@@ -202,8 +202,8 @@ var getPrimaryEquation = () => {
 var getSecondaryEquation = () => theory.latexSymbol + "=\\max\\rho";
 var getTertiaryEquation = () => Localization.format(stringTickspeed, getTickspeed().toString(0));
 
-var getPublicationMultiplier = (tau) => tau.pow(0.176) * (tau / BigNumber.TEN.pow(BigNumber.from(64645699))).pow(0.1).max(1);
-var getPublicationMultiplierFormula = (symbol) => "{" + symbol + "}^{0.176} \\max\\left(1,\\left(\\frac{" + symbol + "}{10^{64645699}}\\right)^{0.1}\\right)";
+var getPublicationMultiplier = (tau) => tau.pow(0.21) * (tau / BigNumber.TEN.pow(BigNumber.from(6464569))).pow(0.1).max(1);
+var getPublicationMultiplierFormula = (symbol) => "{" + symbol + "}^{0.21} \\max\\left(1,\\left(\\frac{" + symbol + "}{10^{6464569}}\\right)^{0.1}\\right)";
 var getTau = () => currency.value;
 var get2DGraphValue = () => currency.value.sign * (BigNumber.ONE + currency.value.abs()).log10().toNumber();
 
