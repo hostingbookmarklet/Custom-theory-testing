@@ -18,6 +18,12 @@ let nextNudge = 0;
 let preserveLastHistory = false;
 let marathonBadge = false;
 
+var id = "collatzconjecturefun";
+var name = "Fun collatz";
+var description = "Test";
+var authors = "yay";
+var version = 1;
+
 let bigNumArray = (array) => array.map(x => BigNumber.from(x));
 
 // All balance parameters are aggregated for ease of access
