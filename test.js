@@ -1,3 +1,51 @@
+import { BigNumber } from '../api/BigNumber';
+import { CompositeCost, ExponentialCost, FirstFreeCost, FreeCost, LinearCost } from '../api/Costs';
+import { Localization } from '../api/Localization';
+import { Theme } from '../api/Settings';
+import { theory } from '../api/Theory';
+import { ui } from '../api/ui/UI';
+import { Color } from '../api/ui/properties/Color';
+import { Utils } from '../api/Utils';
+import { LayoutOptions } from '../api/ui/properties/LayoutOptions';
+import { ImageSource } from '../api/ui/properties/ImageSource';
+import { Aspect } from '../api/ui/properties/Aspect';
+import { TouchType } from '../api/ui/properties/TouchType';
+import { Thickness } from '../api/ui/properties/Thickness';
+import { Easing } from '../api/ui/properties/Easing';
+import { ScrollOrientation } from '../api/ui/properties/ScrollOrientation';
+import { TextAlignment } from '../api/ui/properties/TextAlignment';
+
+var id = 'collatz_conjecturefake';
+var getName = (language) =>
+{
+    let names =
+    {
+        en: 'Collatz Conjecture 2',
+    };
+
+    return names[language] || names.en;
+}
+var getDescription = (language) =>
+{
+    let descs =
+    {
+        en:
+`A puzzle revolving around trying to counteract the even clause of the ` +
+`Collatz conjecture.
+
+'If it's odd, take triple and one,
+If it's even, cut that in two.
+
+If you woke up with a bread in hand,
+what would you do?'`,
+    };
+
+    return descs[language] || descs.en;
+}
+var authors = 'propfeds\n\nThanks to:\nCipher#9599, the original suggester\n' +
+'XLII#0042, a computer pretending to be a normal player, acting at the speed ' +
+'of light';
+var version = 0.10;
 let haxEnabled = false;
 let turns = 0;
 let time = 0;
@@ -17,12 +65,6 @@ let mimickLastHistory = false;
 let nextNudge = 0;
 let preserveLastHistory = false;
 let marathonBadge = false;
-
-var id = "collatzconjecturefun";
-var name = "Fun collatz";
-var description = "Test";
-var authors = "yay";
-var version = 1;
 
 let bigNumArray = (array) => array.map(x => BigNumber.from(x));
 
